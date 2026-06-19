@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AFFORDLOGS & BOSSED EXPRESS | Digital Services & Logistics</title>
+    <title>AFFORDLOGS DIGITAL SERVICES | Premium Social Media Boosting & Assets</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +23,7 @@
             --telegram: #0088cc;
             --success: #10b981;
             --danger: #ef4444;
+            --warning: #f59e0b;
         }
 
         * {
@@ -40,16 +41,44 @@
             overflow-x: hidden;
         }
 
+        /* Announcement Bar */
+        .announcement-bar {
+            background: linear-gradient(90deg, #1e3a8a, #0f172a);
+            color: #fff;
+            text-align: center;
+            padding: 8px 5%;
+            font-size: 0.85rem;
+            font-weight: 600;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .announcement-bar i {
+            color: var(--warning);
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0.5; }
+        }
+
         /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 5%;
-            background: rgba(11, 15, 25, 0.8);
+            background: rgba(11, 15, 25, 0.85);
             backdrop-filter: blur(10px);
             position: fixed;
-            top: 0;
+            top: 36px;
             width: 100%;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -63,7 +92,7 @@
         .logo-main {
             font-size: 1.4rem;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             color: #fff;
             display: flex;
             align-items: center;
@@ -81,19 +110,18 @@
         .slogan-sub {
             font-size: 0.75rem;
             color: var(--text-muted);
-            font-style: italic;
             margin-top: 2px;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 70vh;
+            min-height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 140px 5% 40px 5%;
+            padding: 180px 5% 40px 5%;
             background: radial-gradient(circle at top, rgba(30, 64, 175, 0.15) 0%, rgba(11, 15, 25, 1) 70%);
         }
 
@@ -121,41 +149,60 @@
             max-width: 600px;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
+        /* Process Steps */
+        .process-section {
+            background-color: rgba(22, 27, 38, 0.4);
+            border-top: 1px solid rgba(255,255,255,0.02);
+            border-bottom: 1px solid rgba(255,255,255,0.02);
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-            cursor: pointer;
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
         }
 
-        .btn-telegram { background-color: var(--telegram); color: #fff; }
-        .btn-telegram:hover { background-color: #0077b3; transform: translateY(-2px); }
+        .process-card {
+            background: var(--bg-card);
+            padding: 30px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.03);
+            position: relative;
+            text-align: center;
+        }
 
-        .btn-buy {
-            background-color: var(--primary);
+        .process-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
             color: #fff;
-            width: 100%;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
             justify-content: center;
+            font-weight: 700;
             font-size: 0.9rem;
-            padding: 10px;
-            margin-top: 15px;
+            border: 2px solid var(--bg-main);
         }
-        .btn-buy:hover { background-color: var(--primary-hover); }
 
-        /* Section Global Styling */
+        .process-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            color: #fff;
+        }
+
+        .process-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Global Section Styles */
         section {
             padding: 60px 5%;
             max-width: 1200px;
@@ -172,7 +219,7 @@
             color: var(--accent-blue);
         }
 
-        /* Product Catalog Grid */
+        /* Product Grid */
         .catalog-container {
             margin-bottom: 40px;
         }
@@ -199,7 +246,6 @@
             border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: 12px;
             padding: 20px;
-            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -235,6 +281,7 @@
 
         .badge-instock { background-color: rgba(16, 185, 129, 0.15); color: var(--success); }
         .badge-active { background-color: rgba(56, 189, 248, 0.15); color: var(--accent-blue); }
+        .badge-out { background-color: rgba(239, 68, 68, 0.15); color: var(--danger); }
 
         .product-details h3 {
             font-size: 1.1rem;
@@ -267,28 +314,77 @@
             color: #fff;
         }
 
-        /* Features */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            text-align: center;
+        .btn-buy {
+            background-color: var(--primary);
+            color: #fff;
+            width: 100%;
+            justify-content: center;
+            font-size: 0.9rem;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+        .btn-buy:hover { background-color: var(--primary-hover); }
+
+        /* FAQ Styling */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .feature-item {
+        .faq-item {
             background: var(--bg-card);
-            padding: 25px 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-        }
-
-        .feature-item i {
-            font-size: 1.8rem;
-            color: var(--accent-blue);
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 8px;
             margin-bottom: 12px;
+            overflow: hidden;
         }
 
-        .feature-item h4 { font-size: 0.95rem; }
+        .faq-question {
+            padding: 18px 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-question i {
+            color: var(--accent-blue);
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            background: rgba(11, 15, 25, 0.3);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding: 0 20px;
+        }
+
+        .faq-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .faq-item input[type="checkbox"]:checked ~ .faq-answer {
+            max-height: 200px;
+            padding: 15px 20px 20px 20px;
+            border-top: 1px solid rgba(255,255,255,0.02);
+        }
+
+        .faq-item input[type="checkbox"]:checked ~ .faq-question i {
+            transform: rotate(180deg);
+        }
 
         /* Disclaimer */
         .disclaimer-box {
@@ -296,7 +392,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             padding: 20px;
-            margin: 30px auto;
+            margin: 40px auto 10px auto;
             max-width: 800px;
             text-align: center;
             font-size: 0.85rem;
@@ -319,7 +415,7 @@
 
         footer p { color: var(--text-muted); font-size: 0.85rem; margin-top: 5px; }
 
-        /* Floating Contact Button */
+        /* Floating Contact Widgets */
         .floating-buttons {
             position: fixed;
             bottom: 20px;
@@ -343,39 +439,160 @@
         }
 
         .floating-btn:hover { transform: scale(1.1); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.1rem; }
+            nav { top: 36px; padding: 15px 5%; }
+            .logo-main { font-size: 1.2rem; }
+            section { padding: 50px 5%; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Nav Menu with Integrated Branding & Logos -->
+    <!-- Live Announcement Bar Component -->
+    <div class="announcement-bar">
+        <i class="fas fa-circle-check"></i> <span>Live Update: Social Media Boosting servers are 100% active. Order below!</span>
+    </div>
+
+    <!-- Nav Menu -->
     <nav>
         <div class="brand-container">
             <div class="logo-main">
-                <i class="fas fa-truck-fast"></i> BOSSED EXPRESS | AFFORD<span>LOGS</span>
+                <i class="fas fa-bolt"></i> AFFORD<span>LOGS</span> DIGITAL
             </div>
-            <div class="slogan-sub">Bringing goods, safely fast</div>
+            <div class="slogan-sub">Premium Assets & Social Growth Engine</div>
         </div>
     </nav>
 
-    <!-- Main Entry Point / Hero Header -->
+    <!-- Hero Section -->
     <header class="hero">
-        <div class="subtitle">Affordlogs Digital Services</div>
-        <h1>Your Premium Asset Gateway & Logistics Hub</h1>
-        <p>Providing seamless digital access transactions alongside secure, lightning-fast logistics operations.</p>
-        <div class="cta-buttons">
-            <a href="https://t.me/afford_logs" class="btn btn-telegram" target="_blank">
-                <i class="fab fa-telegram-plane"></i> Enter Main Telegram Channel
-            </a>
-        </div>
+        <div class="subtitle">Welcome To Affordlogs</div>
+        <h1>Boost Your Digital Presence Instantly</h1>
+        <p>Your premium gateway for rapid social media boosting, global utility configurations, and immediate asset validation.</p>
     </header>
 
-    <!-- Live Interactive Catalog -->
+    <!-- 3-Step Process Guide -->
+    <section class="process-section">
+        <h2 class="section-title">How To <span>Order</span></h2>
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-number">1</div>
+                <h3>Choose Service</h3>
+                <p>Scroll down to check our modern packages, prices, and live service statuses.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">2</div>
+                <h3>Connect On Telegram</h3>
+                <p>Tap any purchase button to launch an instant, secure deal text straight to `@Afford_Logs`.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">3</div>
+                <h3>Instant Start</h3>
+                <p>Verify details directly with our main operator, confirm your drop, and watch your delivery deploy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Catalog -->
     <section id="catalog">
-        <h2 class="section-title">Live <span>Offerings & Rates</span></h2>
+        <h2 class="section-title">Live <span>Catalog & Services</span></h2>
         
-        <!-- Category: Digital Assets -->
+        <!-- Category: Social Media Growth -->
         <div class="catalog-container">
-            <h3 class="category-title"><i class="fas fa-sliders"></i> Utilities & Digital Assets</h3>
+            <h3 class="category-title"><i class="fas fa-chart-line"></i> Social Media Growth & Boosting</h3>
+            <div class="products-grid">
+                
+                <!-- Facebook Boosting -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <i class="fab fa-facebook product-icon" style="color: #1877f2; background: rgba(24,119,242,0.1);"></i>
+                        <!-- STOCK CONFIGURATION CONTAINER -->
+                        <span class="badge badge-instock">Instant Delivery</span>
+                    </div>
+                    <div class="product-details">
+                        <h3>Facebook Growth Packages</h3>
+                        <p>Increase page likes, profile followers, post shares, and target group engagements safely.</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price-label">Price Starts From</span>
+                        <!-- PRICE CONFIGURATION MARKER -->
+                        <span class="price-value">₦2,000</span>
+                        <a href="https://t.me/afford_logs?text=Hello,%20I%20want%20to%20order%20Facebook%20Boosting%20Services" class="btn btn-buy" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Order on Telegram
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Instagram Boosting -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <i class="fab fa-instagram product-icon" style="color: #e1306c; background: rgba(225,48,108,0.1);"></i>
+                        <!-- STOCK CONFIGURATION CONTAINER -->
+                        <span class="badge badge-instock">Instant Delivery</span>
+                    </div>
+                    <div class="product-details">
+                        <h3>Instagram Growth Packages</h3>
+                        <p>Real-look followers, organic engagement trends, views, and high-retention reel boosts.</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price-label">Price Starts From</span>
+                        <!-- PRICE CONFIGURATION MARKER -->
+                        <span class="price-value">₦2,000</span>
+                        <a href="https://t.me/afford_logs?text=Hello,%20I%20want%20to%20order%20Instagram%20Boosting%20Services" class="btn btn-buy" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Order on Telegram
+                        </a>
+                    </div>
+                </div>
+
+                <!-- X (Twitter) Boosting -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <i class="fab fa-x-twitter product-icon" style="color: #ffffff; background: rgba(255,255,255,0.1);"></i>
+                        <!-- STOCK CONFIGURATION CONTAINER -->
+                        <span class="badge badge-instock">Instant Delivery</span>
+                    </div>
+                    <div class="product-details">
+                        <h3>X (Twitter) Growth Packages</h3>
+                        <p>High-quality profile followers, instant retweets, tweet impressions, and viral bookmarks.</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price-label">Price Starts From</span>
+                        <!-- PRICE CONFIGURATION MARKER -->
+                        <span class="price-value">₦2,000</span>
+                        <a href="https://t.me/afford_logs?text=Hello,%20I%20want%20to%20order%20X%20Twitter%20Boosting%20Services" class="btn btn-buy" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Order on Telegram
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TikTok Boosting -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <i class="fab fa-tiktok product-icon" style="color: #00f2fe; background: rgba(0,242,254,0.1);"></i>
+                        <!-- STOCK CONFIGURATION CONTAINER -->
+                        <span class="badge badge-instock">Instant Delivery</span>
+                    </div>
+                    <div class="product-details">
+                        <h3>TikTok Growth Packages</h3>
+                        <p>Go viral rapidly with stable profile followers, video likes, shares, and high-volume video views.</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price-label">Price Starts From</span>
+                        <!-- PRICE CONFIGURATION MARKER -->
+                        <span class="price-value">₦2,000</span>
+                        <a href="https://t.me/afford_logs?text=Hello,%20I%20want%20to%20order%20TikTok%20Boosting%20Services" class="btn btn-buy" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Order on Telegram
+                        </a>
+                    </div>in 
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Category: Utilities & Digital Assets -->
+        <div class="catalog-container">
+            <h3 class="category-title"><i class="fas fa-sliders"></i> Digital Utilities & Assets</h3>
             <div class="products-grid">
                 
                 <!-- Product 1 -->
@@ -390,7 +607,7 @@
                     </div>
                     <div class="product-footer">
                         <span class="price-label">Price Starts From</span>
-                        <span class="price-value">₦35,000</span>
+                        <span class="price-value">₦5,000</span>
                         <a href="https://t.me/afford_logs?text=Hello,%20I%20want%20to%20buy%20the%20Premium%20eSIM%20Solution" class="btn btn-buy" target="_blank">
                             <i class="fas fa-shopping-cart"></i> Buy via Telegram
                         </a>
@@ -409,7 +626,7 @@
                     </div>
                     <div class="product-footer">
                         <span class="price-label">Price / Month</span>
-                        <span class="price-value">₦3,000</span>
+                        <span class="price-value">₦3,500</span>
                         <a href="https://t.me/afford_logs?text=Hello,%20I%20want%20to%20buy%20the%20Premium%20VPN%20Account" class="btn btn-buy" target="_blank">
                             <i class="fas fa-shopping-cart"></i> Buy via Telegram
                         </a>
@@ -427,8 +644,8 @@
                         <p>Secure bypass verification logs for major international application protocols.</p>
                     </div>
                     <div class="product-footer">
-                        <span class="price-label">Price Per OTP/>
-                        <span class="price-value">₦3,000</span>
+                        <span class="price-label">Price Per OTP</span>
+                        <span class="price-value">₦1,500</span>
                         <a href="https://t.me/afford_logs?text=Hello,%20I%20need%20a%20Virtual%20Number%20Activation" class="btn btn-buy" target="_blank">
                             <i class="fas fa-shopping-cart"></i> Buy via Telegram
                         </a>
@@ -485,27 +702,48 @@
         </div>
     </section>
 
-    <!-- Core Commitments -->
-    <section>
-        <h2 class="section-title">Core <span>Commitments</span></h2>
-        <div class="features-grid">
-            <div class="feature-item"><i class="fas fa-bolt"></i><h4>Safely Fast</h4></div>
-            <div class="feature-item"><i class="fas fa-shield-halved"></i><h4>Trusted Service</h4></div>
-            <div class="feature-item"><i class="fas fa-tags"></i><h4>Elite Pricing</h4></div>
-            <div class="feature-item"><i class="fas fa-lock"></i><h4>Secure Operations</h4></div>
+    <!-- Frequently Asked Questions -->
+    <section id="faq">
+        <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+        <div class="faq-container">
+            
+            <div class="faq-item">
+                <input type="checkbox" id="faq-1">
+                <label for="faq-1" class="faq-question">How fast do social media packages start? <i class="fas fa-chevron-down"></i></label>
+                <div class="faq-answer">
+                    <p>Most boosting packages (Facebook, Instagram, X, TikTok) deploy automatically within 10 to 30 minutes after your transfer or payment drop is validated.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <input type="checkbox" id="faq-2">
+                <label for="faq-2" class="faq-question">What payment methods do you accept? <i class="fas fa-chevron-down"></i></label>
+                <div class="faq-answer">
+                    <p>We handle secure transactions using local bank transfers, Bitcoin (BTC), and international platforms like CashApp and Zelle drops.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <input type="checkbox" id="faq-3">
+                <label for="faq-3" class="faq-question">Is the boosting safe for my account? <i class="fas fa-chevron-down"></i></label>
+                <div class="faq-answer">
+                    <p>Yes, all packages delivered by Affordlogs use organic-looking protocol flows that fully comply with community terms, protecting your accounts safely.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Disclaimer Box -->
+    <!-- Disclaimer -->
     <div class="disclaimer-box">
         <strong style="color: var(--danger); display: block; margin-bottom: 5px;">Terms & Disclaimer</strong>
-        All services are intended for lawful use only. Customers are entirely responsible for usage logistics post-delivery.
+        All services offered by Affordlogs are intended for legal growth and utility configurations only.
     </div>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-logo">BOSSED EXPRESS & AFFORDLOGS</div>
-        <p>Bringing goods, safely fast. Digital Access Made Easy.</p>
+        <div class="footer-logo">AFFORDLOGS DIGITAL SERVICES</div>
+        <p>© 2026 Affordlogs. Secure Assets & Professional Platform Growth Engine.</p>
     </footer>
 
     <!-- Persistent Floating Telegram Contact Widget -->
