@@ -45,24 +45,27 @@
         .filter-btn { padding: 10px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; text-decoration: none; border: 1px solid #1e293b; background: #0f172a; color: #94a3b8; white-space: nowrap; cursor: pointer; }
         .filter-btn.active { background: #1d4ed8; color: white; border-color: #1d4ed8; }
         
-        /* PWA Banner styling */
+        /* PWA App Banner */
         .pwa-banner { max-width: 760px; margin: 15px auto; background: #0f172a; border: 1px solid #1d4ed8; border-radius: 12px; padding: 16px; position: relative; display: flex; flex-direction: column; gap: 8px; }
         .pwa-banner h4 { font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 8px; color: #ffffff; }
         .pwa-banner h4 i { color: #38bdf8; }
         .pwa-banner p { font-size: 13px; color: #94a3b8; line-height: 1.5; }
         .pwa-banner .close-pwa { position: absolute; top: 12px; right: 16px; color: #64748b; background: none; border: none; font-size: 16px; cursor: pointer; }
 
-        /* Telegram Broadcast Channel Box */
+        /* Telegram Broadcast Alert */
         .tg-channel-box { max-width: 760px; margin: 15px auto; background: linear-gradient(145deg, #0f172a, #0b2545); border: 1px solid #1e293b; border-radius: 12px; padding: 20px; text-align: center; }
         .tg-channel-box p { font-size: 13px; color: #94a3b8; margin-bottom: 15px; line-height: 1.5; }
         .connect-channel-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 300px; background: #38bdf8; color: #060b13; border: none; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
-        .connect-channel-btn:hover { background: #0ea5e9; color: white; }
+        
+        /* Multi-Page Views Control */
+        .app-view { display: none; }
+        .app-view.active-view { display: block; }
 
         .inventory-section { max-width: 800px; margin: 25px auto 0 auto; padding: 0 20px; }
         .section-title { font-size: 22px; font-weight: 700; margin-bottom: 20px; border-left: 4px solid #38bdf8; padding-left: 10px; }
         
-        /* Product Card Styling */
-        .product-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 16px; padding: 24px; margin-bottom: 20px; position: relative; display: block; }
+        /* Product Cards Structure */
+        .product-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 16px; padding: 24px; margin-bottom: 20px; position: relative; }
         .card-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
         .product-icon-title { display: flex; align-items: center; gap: 15px; }
         .product-icon { width: 45px; height: 45px; background: #060b13; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
@@ -79,9 +82,10 @@
         
         .product-description { color: #94a3b8; font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
         
-        /* Nested list rows inside cards */
+        /* Direct Nested Lists Inside Cards */
         .list-container { background: #060b13; border-radius: 10px; overflow: hidden; margin-bottom: 20px; border: 1px solid #1e293b; }
-        .list-row { display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 1px solid #1e293b; text-decoration: none; color: inherit; }
+        .list-row { display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 1px solid #1e293b; text-decoration: none; color: inherit; cursor: pointer; transition: background 0.2s; }
+        .list-row:hover { background: #0f172a; }
         .list-row:last-child { border-bottom: none; }
         .row-left-item { display: flex; flex-direction: column; gap: 4px; }
         .row-item-title { font-size: 15px; font-weight: 600; color: #ffffff; }
@@ -98,27 +102,27 @@
         
         .secure-order-btn { width: 100%; background: #1d4ed8; color: white; border: none; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; cursor: pointer; }
         
-        /* Disclaimer & Rules Styling blocks */
-        .disclaimer-section { background: #0c1322; border: 1px solid #eab308; border-radius: 12px; padding: 20px; margin-top: 30px; margin-bottom: 25px; }
+        /* Disclaimers & Rules Containers */
+        .disclaimer-section { background: #0c1322; border: 1px solid #eab308; border-radius: 12px; padding: 20px; margin-top: 15px; margin-bottom: 20px; }
         .disclaimer-section h3 { font-size: 16px; font-weight: 700; color: #eab308; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
         .disclaimer-section p, .disclaimer-section li { font-size: 13px; color: #94a3b8; line-height: 1.6; margin-bottom: 10px; }
-        .disclaimer-section ul { padding-left: 20px; margin-bottom: 10px; }
+        .disclaimer-section ul { padding-left: 20px; }
 
         .responsibility-section { background: #0f172a; border: 1px solid #ef4444; border-radius: 12px; padding: 20px; margin-bottom: 35px; }
         .responsibility-section h3 { font-size: 16px; font-weight: 700; color: #ef4444; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
         .responsibility-section p, .responsibility-section li { font-size: 13px; color: #94a3b8; line-height: 1.6; margin-bottom: 10px; }
         .responsibility-section ul { padding-left: 20px; }
 
-        /* Bottom Sticky Menu Style */
+        /* Fixed Navigation System */
         .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #0f172a; border-top: 1px solid #1e293b; display: flex; justify-content: space-around; padding: 12px 10px; z-index: 99; }
-        .nav-item { text-align: center; text-decoration: none; color: #64748b; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .nav-item { text-align: center; text-decoration: none; color: #64748b; display: flex; flex-direction: column; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; width: 33%; }
         .nav-item i { font-size: 20px; margin-bottom: 4px; }
         .nav-title { font-size: 12px; font-weight: 600; }
         .nav-item.active { color: #38bdf8; }
-        .nav-item.giftcard { color: #fbbf24; max-width: 50%; }
-        .nav-subtitle { font-size: 9px; color: #64748b; font-weight: normal; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .nav-item.giftcard { color: #fbbf24; }
+        .nav-subtitle { font-size: 9px; color: #64748b; font-weight: normal; margin-top: 1px; }
         
-        .floating-tg { position: fixed; bottom: 85px; right: 20px; background: #0088cc; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; z-index: 100; }
+        .floating-tg { position: fixed; bottom: 85px; right: 20px; background: #0088cc; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; z-index: 100; cursor: pointer; border: none; }
     </style>
 </head>
 <body>
@@ -132,309 +136,318 @@
         <div class="tagline">Premium Digital Utility Assets Hub</div>
     </div>
 
-    <!-- Live Search -->
-    <div class="search-container">
-        <i class="fas fa-search"></i>
-        <input type="text" id="searchInput" class="search-box" placeholder="Search for accounts, bypass logs, tools...">
-    </div>
-
-    <!-- Filter Buttons -->
-    <div class="filter-container">
-        <div class="filter-btn active" onclick="filterCategory('all', this)">All Products</div>
-        <div class="filter-btn" onclick="filterCategory('social', this)">Social Accounts</div>
-        <div class="filter-btn" onclick="filterCategory('otp', this)">OTP & Virtual Numbers</div>
-    </div>
-
-    <div style="padding: 0 20px;">
-        <!-- Home Screen Save Prompt Banner -->
-        <div class="pwa-banner" id="pwaBanner">
-            <button class="close-pwa" onclick="closePwa()">&times;</button>
-            <h4><i class="fas fa-mobile-alt"></i> Save Affordlogs as an App!</h4>
-            <p>Tap your browser's share or menu icon and select <strong>"Add to Home Screen"</strong> to view inventory changes and updates instantly.</p>
+    <!-- ==================== VIEW 1: INVENTORY PAGE ==================== -->
+    <div id="inventoryView" class="app-view active-view">
+        <!-- Live Filter Bar -->
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" class="search-box" placeholder="Search for accounts, bypass logs, tools...">
         </div>
 
-        <!-- Telegram Broadcast Block -->
-        <div class="tg-channel-box">
-            <p>Get real-time daily exchange rates, instant log replenishment alerts, and priority client support updates.</p>
-            <a href="https://t.me/afford_logs" target="_blank" class="connect-channel-btn">
-                Connect to Channel <i class="fas fa-external-link-alt"></i>
-            </a>
+        <div class="filter-container">
+            <div class="filter-btn active" onclick="filterCategory('all', this)">All Products</div>
+            <div class="filter-btn" onclick="filterCategory('social', this)">Social Accounts</div>
+            <div class="filter-btn" onclick="filterCategory('otp', this)">OTP & Virtual Numbers</div>
         </div>
-    </div>
 
-    <!-- Product Sections Container -->
-    <div class="inventory-section">
-        <div class="section-title">All Available Inventory</div>
-
-        <!-- 1. SOCIAL ACCOUNTS -->
-        <div class="product-card" data-category="social" data-title="social accounts profiles fb facebook tiktok icloud">
-            <div class="card-header-row">
-                <div class="product-icon-title">
-                    <div class="product-icon icon-fb"><i class="fab fa-facebook-f"></i></div>
-                    <div class="product-title-text">Social Accounts Profiles</div>
-                </div>
-                <span class="card-badge">In Stock</span>
+        <div style="padding: 0 20px;">
+            <div class="pwa-banner" id="pwaBanner">
+                <button class="close-pwa" onclick="closePwa()">&times;</button>
+                <h4><i class="fas fa-mobile-alt"></i> Save Affordlogs as an App!</h4>
+                <p>Tap your browser's share or menu icon and select <strong>"Add to Home Screen"</strong> to view inventory changes and updates instantly.</p>
             </div>
-            <p class="product-description">Premium established configurations across major global communication platforms and advertising networks.</p>
+
+            <div class="tg-channel-box">
+                <p>Get real-time daily exchange rates, instant log replenishment alerts, and priority client support updates.</p>
+                <a href="https://t.me/afford_logs" target="_blank" class="connect-channel-btn">
+                    Connect to Channel <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="inventory-section">
+            <div class="section-title">All Available Inventory</div>
+
+            <!-- SOCIAL ACCOUNTS -->
+            <div class="product-card" data-category="social" data-title="social accounts profiles fb facebook tiktok icloud">
+                <div class="card-header-row">
+                    <div class="product-icon-title">
+                        <div class="product-icon icon-fb"><i class="fab fa-facebook-f"></i></div>
+                        <div class="product-title-text">Social Accounts Profiles</div>
+                    </div>
+                    <span class="card-badge">In Stock</span>
+                </div>
+                <p class="product-description">Premium established configurations across major global communication platforms and advertising networks.</p>
+                
+                <div class="list-container">
+                    <div class="list-row" onclick="triggerOrder('USA Facebook (5-20 Friends)', '₦5,500')">
+                        <div class="row-left-item">
+                            <span class="row-item-title">USA Facebook (5-20 Friends)</span>
+                            <span class="row-item-subtitle">Social Accounts</span>
+                        </div>
+                        <div class="row-right-item">
+                            <span class="row-item-price">₦5,500</span>
+                            <span class="row-item-status">In Stock</span>
+                        </div>
+                    </div>
+                    <div class="list-row" onclick="triggerOrder('Local Facebook (Good Qualities)', '₦4,500')">
+                        <div class="row-left-item">
+                            <span class="row-item-title">Local Facebook (Good Qualities)</span>
+                            <span class="row-item-subtitle">Social Accounts</span>
+                        </div>
+                        <div class="row-right-item">
+                            <span class="row-item-price">₦4,500</span>
+                            <span class="row-item-status">In Stock</span>
+                        </div>
+                    </div>
+                    <div class="list-row" onclick="triggerOrder('UK Facebook', '₦6,000')">
+                        <div class="row-left-item">
+                            <span class="row-item-title">UK Facebook</span>
+                            <span class="row-item-subtitle">Social Accounts</span>
+                        </div>
+                        <div class="row-right-item">
+                            <span class="row-item-price">₦6,000</span>
+                            <span class="row-item-status">In Stock</span>
+                        </div>
+                    </div>
+                    <div class="list-row" onclick="triggerOrder('USA TikTok (1k+ Followers)', '₦6,000')">
+                        <div class="row-left-item">
+                            <span class="row-item-title">USA TikTok (1k+ Followers)</span>
+                            <span class="row-item-subtitle">Social Accounts</span>
+                        </div>
+                        <div class="row-right-item">
+                            <span class="row-item-price">₦6,000</span>
+                            <span class="row-item-status">In Stock</span>
+                        </div>
+                    </div>
+                    <div class="list-row" onclick="triggerOrder('USA iCloud Account', '₦3,500')">
+                        <div class="row-left-item">
+                            <span class="row-item-title">USA iCloud Account</span>
+                            <span class="row-item-subtitle">Apple Services</span>
+                        </div>
+                        <div class="row-right-item">
+                            <span class="row-item-price">₦3,500</span>
+                            <span class="row-item-status">In Stock</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="secure-order-btn" onclick="triggerOrder('Social Accounts Bundle Pack', 'Market Rates')">
+                    <i class="fas fa-shopping-cart"></i> Secure Order via Telegram
+                </button>
+            </div>
+
+            <!-- INSTAGRAM -->
+            <div class="product-card" data-category="social" data-title="instagram accounts ig profiles">
+                <div class="card-header-row">
+                    <div class="product-icon-title">
+                        <div class="product-icon icon-ig"><i class="fab fa-instagram"></i></div>
+                        <div class="product-title-text">Instagram Accounts</div>
+                    </div>
+                    <span class="card-badge hot">Hot Demand</span>
+                </div>
+                <p class="product-description">Premium setup profiles showing secure activity historical metrics, fully optimized for fast rebranding modifications.</p>
+                <div class="price-container">
+                    <div class="price-label">Price Starts From</div>
+                    <div class="price-value">₦2,000</div>
+                </div>
+                <button class="secure-order-btn" onclick="triggerOrder('Instagram Account Profile', '₦2,000')">
+                    <i class="fas fa-shopping-cart"></i> Secure Order
+                </button>
+            </div>
+
+            <!-- VIRTUAL NUMBERS -->
+            <div class="product-card" data-category="otp" data-title="virtual numbers whatsapp telegram any app code otp verification bypass sms">
+                <div class="card-header-row">
+                    <div class="product-icon-title">
+                        <div class="product-icon icon-sms"><i class="fas fa-sms"></i></div>
+                        <div class="product-title-text">Virtual Numbers (WhatsApp & Telegram)</div>
+                    </div>
+                    <span class="card-badge hot">Popular</span>
+                </div>
+                <p class="product-description">Dedicated high-delivery virtual channels generated to instantly deliver verification activation codes and unlock secure text bypass routines for your profiles.</p>
+                <div class="price-container">
+                    <div class="price-label">Fixed Price Per Account Code</div>
+                    <div class="price-value">₦3,000</div>
+                </div>
+                <button class="secure-order-btn" onclick="triggerOrder('Virtual Number Activation Code (WhatsApp/Telegram)', '₦3,000')">
+                    <i class="fas fa-lock"></i> Buy Activation Code
+                </button>
+            </div>
+
+            <!-- GOOGLE VOICE -->
+            <div class="product-card" data-category="otp" data-title="old google voice accounts gvoice aged asset">
+                <div class="card-header-row">
+                    <div class="product-icon-title">
+                        <div class="product-icon icon-g"><i class="fab fa-google"></i></div>
+                        <div class="product-title-text">Old Google Voice Accounts</div>
+                    </div>
+                    <span class="card-badge aged">Aged Asset</span>
+                </div>
+                <p class="product-description">Highly stable, pristine communication assets linked to historical verification parameters for long-term delivery retention.</p>
+                <div class="price-container">
+                    <div class="price-label">Price Per Profile</div>
+                    <div class="price-value">₦8,000</div>
+                </div>
+                <button class="secure-order-btn" onclick="triggerOrder('Old Google Voice Account', '₦8,000')">
+                    <i class="fas fa-shopping-cart"></i> Buy Account
+                </button>
+            </div>
+
+            <!-- TEXTNOW -->
+            <div class="product-card" data-category="otp" data-title="textnow accounts virtual profiles tracking logs">
+                <div class="card-header-row">
+                    <div class="product-icon-title">
+                        <div class="product-icon icon-phone"><i class="fas fa-phone-alt"></i></div>
+                        <div class="product-title-text">TextNow Accounts</div>
+                    </div>
+                    <span class="card-badge">Active</span>
+                </div>
+                <p class="product-description">Fully established, functional inbound and outbound digital communication tracking profiles configured for immediate communication deployment.</p>
+                <div class="price-container">
+                    <div class="price-label">Price Per Profile</div>
+                    <div class="price-value">₦3,500</div>
+                </div>
+                <button class="secure-order-btn" onclick="triggerOrder('TextNow Account Asset', '₦3,500')">
+                    <i class="fas fa-shopping-cart"></i> Buy Account
+                </button>
+            </div>
+
+            <!-- TALKATONE -->
+            <div class="product-card" data-category="otp" data-title="talkatone numbers clean verifications verification bypass routines">
+                <div class="card-header-row">
+                    <div class="product-icon-title">
+                        <div class="product-icon icon-phone"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="product-title-text">Talkatone Numbers</div>
+                    </div>
+                    <span class="card-badge">Active</span>
+                </div>
+                <p class="product-description">Extremely reliable dedicated application protocols for clean digital verifications and secure text bypass routines.</p>
+                <div class="price-container">
+                    <div class="price-label">Price Per Setup</div>
+                    <div class="price-value">₦3,500</div>
+                </div>
+                <button class="secure-order-btn" onclick="triggerOrder('Talkatone Number Activation Setup', '₦3,500')">
+                    <i class="fas fa-shopping-cart"></i> Buy Account
+                </button>
+            </div>
+
+            <!-- GOOGLE LOGIN DOMAIN TEXTPLUS -->
+            <div class="product-card" data-category="otp" data-title="google login domain textplus vpn octohide expressvpn">
+                <div class="card-header-row">
+                    <div class="product-icon-title">
+                        <div class="product-icon icon-vpn"><i class="fas fa-network-wired"></i></div>
+                        <div class="product-title-text">Google Login Domain textPlus</div>
+                    </div>
+                    <span class="card-badge">Available</span>
+                </div>
+                <p class="product-description">Heavy-duty data configuration parameters built explicitly for smooth authorization workflows without errors.</p>
+                <div class="specs-box">
+                    <strong>VPN Configuration:</strong> OCTOHIDE VPN Location USA-UK or ExpressVPN USA Any City. Sign in via Google inside textPlus App.
+                </div>
+                <div class="price-container">
+                    <div class="price-label">Price Per Setup</div>
+                    <div class="price-value">₦3,000</div>
+                </div>
+                <button class="secure-order-btn" onclick="triggerOrder('Google Login Domain textPlus Asset', '₦3,000')">
+                    <i class="fas fa-shopping-cart"></i> Secure Setup
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================== VIEW 2: RATES & POLICIES PAGE ==================== -->
+    <div id="ratesView" class="app-view">
+        <div class="inventory-section">
+            <div class="section-title">Exchange & Security Rules</div>
+
+            <div class="disclaimer-section">
+                <h3><i class="fas fa-exclamation-triangle"></i> Important Store Disclaimer</h3>
+                <p>All digital utility products, assets, configuration logs, and virtual setup bypass assets available on Affordlogs are structural utilities intended solely for legal application optimization, data tracking, authorization testing, and private cloud communication protocols.</p>
+                <ul>
+                    <li><strong>Strict Replacement Policy:</strong> Validation warranty handles apply exclusively to invalid credentials or platform errors upon delivery block allocation.</li>
+                    <li><strong>No Refund Policy:</strong> Once delivery metrics are successfully generated and dispatched to your handling client, all premium sales configurations are structural and final.</li>
+                </ul>
+            </div>
+
+            <div class="responsibility-section">
+                <h3><i class="fas fa-user-shield"></i> Buyer Responsibility Parameters</h3>
+                <p>By proceeding with a secure token order checkout, the purchasing client implicitly agrees to the following structural operational guidelines:</p>
+                <ul>
+                    <li>You are solely accountable for maintaining proxy environments (such as ExpressVPN or clean matching geographic network configs) requested during profile deployment execution.</li>
+                    <li>Affordlogs holds completely zero liability for subsequent account updates, security suspensions, or application configuration flags triggered by incorrect network device parameters post-delivery.</li>
+                </ul>
+            </div>
             
-            <div class="list-container">
-                <a href="https://t.me/afford_logs" target="_blank" class="list-row">
-                    <div class="row-left-item">
-                        <span class="row-item-title">USA Facebook (5-20 Friends)</span>
-                        <span class="row-item-subtitle">Social Accounts</span>
-                    </div>
-                    <div class="row-right-item">
-                        <span class="row-item-price">₦5,500</span>
-                        <span class="row-item-status">In Stock</span>
-                    </div>
-                </a>
-                <a href="https://t.me/afford_logs" target="_blank" class="list-row">
-                    <div class="row-left-item">
-                        <span class="row-item-title">Local Facebook (Good Qualities)</span>
-                        <span class="row-item-subtitle">Social Accounts</span>
-                    </div>
-                    <div class="row-right-item">
-                        <span class="row-item-price">₦4,500</span>
-                        <span class="row-item-status">In Stock</span>
-                    </div>
-                </a>
-                <a href="https://t.me/afford_logs" target="_blank" class="list-row">
-                    <div class="row-left-item">
-                        <span class="row-item-title">UK Facebook</span>
-                        <span class="row-item-subtitle">Social Accounts</span>
-                    </div>
-                    <div class="row-right-item">
-                        <span class="row-item-price">₦6,000</span>
-                        <span class="row-item-status">In Stock</span>
-                    </div>
-                </a>
-                <a href="https://t.me/afford_logs" target="_blank" class="list-row">
-                    <div class="row-left-item">
-                        <span class="row-item-title">USA TikTok (1k+ Followers)</span>
-                        <span class="row-item-subtitle">Social Accounts</span>
-                    </div>
-                    <div class="row-right-item">
-                        <span class="row-item-price">₦6,000</span>
-                        <span class="row-item-status">In Stock</span>
-                    </div>
-                </a>
-                <a href="https://t.me/afford_logs" target="_blank" class="list-row">
-                    <div class="row-left-item">
-                        <span class="row-item-title">USA iCloud Account</span>
-                        <span class="row-item-subtitle">Apple Services</span>
-                    </div>
-                    <div class="row-right-item">
-                        <span class="row-item-price">₦3,500</span>
-                        <span class="row-item-status">In Stock</span>
-                    </div>
-                </a>
+            <div class="tg-channel-box" style="margin-top:20px;">
+                <p>Need current transaction metrics for Gift Cards or foreign payment systems?</p>
+                <button class="connect-channel-btn" style="background:#fbbf24;" onclick="triggerOrder('Gift Card / Alternate Asset Exchange Query', 'Current Daily Rates')">
+                    Check Asset Exchange Rates <i class="fas fa-chart-line"></i>
+                </button>
             </div>
-            <a href="https://t.me/afford_logs" target="_blank" class="secure-order-btn">
-                <i class="fas fa-shopping-cart"></i> Secure Order via Telegram
-            </a>
         </div>
-
-        <!-- 2. INSTAGRAM -->
-        <div class="product-card" data-category="social" data-title="instagram accounts ig profiles">
-            <div class="card-header-row">
-                <div class="product-icon-title">
-                    <div class="product-icon icon-ig"><i class="fab fa-instagram"></i></div>
-                    <div class="product-title-text">Instagram Accounts</div>
-                </div>
-                <span class="card-badge hot">Hot Demand</span>
-            </div>
-            <p class="product-description">Premium setup profiles showing secure activity historical metrics, fully optimized for fast rebranding modifications.</p>
-            <div class="price-container">
-                <div class="price-label">Price Starts From</div>
-                <div class="price-value">₦2,000</div>
-            </div>
-            <a href="https://t.me/afford_logs" target="_blank" class="secure-order-btn">
-                <i class="fas fa-shopping-cart"></i> Secure Order
-            </a>
-        </div>
-
-        <!-- 3. VIRTUAL NUMBERS -->
-        <div class="product-card" data-category="otp" data-title="virtual numbers whatsapp telegram any app code otp verification bypass sms">
-            <div class="card-header-row">
-                <div class="product-icon-title">
-                    <div class="product-icon icon-sms"><i class="fas fa-sms"></i></div>
-                    <div class="product-title-text">Virtual Numbers (WhatsApp & Telegram)</div>
-                </div>
-                <span class="card-badge hot">Popular</span>
-            </div>
-            <p class="product-description">Dedicated high-delivery virtual channels generated to instantly deliver verification activation codes and unlock secure text bypass routines for your profiles.</p>
-            <div class="price-container">
-                <div class="price-label">Fixed Price Per Account Code</div>
-                <div class="price-value">₦3,000</div>
-            </div>
-            <a href="https://t.me/afford_logs" target="_blank" class="secure-order-btn">
-                <i class="fas fa-lock"></i> Buy Activation Code
-            </a>
-        </div>
-
-        <!-- 4. GOOGLE VOICE -->
-        <div class="product-card" data-category="otp" data-title="old google voice accounts gvoice aged asset">
-            <div class="card-header-row">
-                <div class="product-icon-title">
-                    <div class="product-icon icon-g"><i class="fab fa-google"></i></div>
-                    <div class="product-title-text">Old Google Voice Accounts</div>
-                </div>
-                <span class="card-badge aged">Aged Asset</span>
-            </div>
-            <p class="product-description">Highly stable, pristine communication assets linked to historical verification parameters for long-term delivery retention.</p>
-            <div class="price-container">
-                <div class="price-label">Price Per Profile</div>
-                <div class="price-value">₦8,000</div>
-            </div>
-            <a href="https://t.me/afford_logs" target="_blank" class="secure-order-btn">
-                <i class="fas fa-shopping-cart"></i> Buy Account
-            </a>
-        </div>
-
-        <!-- 5. TEXTNOW -->
-        <div class="product-card" data-category="otp" data-title="textnow accounts virtual profiles tracking logs">
-            <div class="card-header-row">
-                <div class="product-icon-title">
-                    <div class="product-icon icon-phone"><i class="fas fa-phone-alt"></i></div>
-                    <div class="product-title-text">TextNow Accounts</div>
-                </div>
-                <span class="card-badge">Active</span>
-            </div>
-            <p class="product-description">Fully established, functional inbound and outbound digital communication tracking profiles configured for immediate communication deployment.</p>
-            <div class="price-container">
-                <div class="price-label">Price Per Profile</div>
-                <div class="price-value">₦3,500</div>
-            </div>
-            <a href="https://t.me/afford_logs" target="_blank" class="secure-order-btn">
-                <i class="fas fa-shopping-cart"></i> Buy Account
-            </a>
-        </div>
-
-        <!-- 6. TALKATONE -->
-        <div class="product-card" data-category="otp" data-title="talkatone numbers clean verifications verification bypass routines">
-            <div class="card-header-row">
-                <div class="product-icon-title">
-                    <div class="product-icon icon-phone"><i class="fas fa-mobile-alt"></i></div>
-                    <div class="product-title-text">Talkatone Numbers</div>
-                </div>
-                <span class="card-badge">Active</span>
-            </div>
-            <p class="product-description">Extremely reliable dedicated application protocols for clean digital verifications and secure text bypass routines.</p>
-            <div class="price-container">
-                <div class="price-label">Price Per Setup</div>
-                <div class="price-value">₦3,500</div>
-            </div>
-            <a href="https://t.me/afford_logs" target="_blank" class="secure-order-btn">
-                <i class="fas fa-shopping-cart"></i> Buy Account
-            </a>
-        </div>
-
-        <!-- 7. GOOGLE LOGIN DOMAIN TEXTPLUS -->
-        <div class="product-card" data-category="otp" data-title="google login domain textplus vpn octohide expressvpn">
-            <div class="card-header-row">
-                <div class="product-icon-title">
-                    <div class="product-icon icon-vpn"><i class="fas fa-network-wired"></i></div>
-                    <div class="product-title-text">Google Login Domain textPlus</div>
-                </div>
-                <span class="card-badge">Available</span>
-            </div>
-            <p class="product-description">Heavy-duty data configuration parameters built explicitly for smooth authorization workflows without errors.</p>
-            <div class="specs-box">
-                <strong>VPN Configuration:</strong> OCTOHIDE VPN Location USA-UK or ExpressVPN USA Any City. Sign in via Google inside textPlus App.
-            </div>
-            <div class="price-container">
-                <div class="price-label">Price Per Setup</div>
-                <div class="price-value">₦3,000</div>
-            </div>
-            <a href="https://t.me/afford_logs" target="_blank" class="secure-order-btn">
-                <i class="fas fa-shopping-cart"></i> Secure Setup
-            </a>
-        </div>
-
-        <!-- 8. ESIM ROAMING -->
-        <div class="product-card" data-category="otp" data-title="premium esim roaming cellular data profiles">
-            <div class="card-header-row">
-                <div class="product-icon-title">
-                    <div class="product-icon icon-sms"><i class="fas fa-sim-card"></i></div>
-                    <div class="product-title-text">Premium eSIM Roaming</div>
-                </div>
-                <span class="card-badge">Available</span>
-            </div>
-            <p class="product-description">Global cellular roaming data logs for complete application validation workflows and international communication channels.</p>
-            <div class="price-container">
-                <div class="price-label">Price Per Month</div>
-                <div class="price-value">₦35,000</div>
-            </div>
-            <a href="https://t.me/afford_logs" target="_blank" class="secure-order-btn">
-                <i class="fas fa-globe"></i> Secure Setup
-            </a>
-        </div>
-
-        <!-- 9. PREMIUM VPN ACCESS LOGS -->
-        <div class="product-card" data-category="otp" data-title="premium vpn access logs encrypted accounts proxies secure licenses">
-            <div class="card-header-row">
-                <div class="product-icon-title">
-                    <div class="product-icon icon-vpn"><i class="fas fa-shield-alt"></i></div>
-                    <div class="product-title-text">Premium VPN Access Logs</div>
-                </div>
-                <span class="card-badge">Available</span>
-            </div>
-            <p class="product-description">Highly secure, completely isolated no-logs encrypted data access licenses for guaranteed connection privacy.</p>
-            <div class="price-container">
-                <div class="price-label">Price Per Month Account</div>
-                <div class="price-value">₦3,000</div>
-            </div>
-            <a href="https://t.me/afford_logs" target="_blank" class="secure-order-btn">
-                <i class="fas fa-shield-alt"></i> Secure Order
-            </a>
-        </div>
-
-        <!-- RESTORED: MARKETPLACE TERMS & CONDITIONS -->
-        <div class="disclaimer-section">
-            <h3><i class="fas fa-exclamation-triangle"></i> Important Store Disclaimer</h3>
-            <p>All digital utility products, assets, configuration logs, and virtual setup bypass assets available on Affordlogs are structural utilities intended solely for legal application optimization, data tracking, authorization testing, and private cloud communication protocols.</p>
-            <ul>
-                <li><strong>Strict Replacement Policy:</strong> Validation warranty handles apply exclusively to invalid credentials or platform errors upon delivery block allocation.</li>
-                <li><strong>No Refund Policy:</strong> Once delivery metrics are successfully generated and dispatched to your handling client, all premium sales configurations are structural and final.</li>
-            </ul>
-        </div>
-
-        <div class="responsibility-section">
-            <h3><i class="fas fa-user-shield"></i> Buyer Responsibility Parameters</h3>
-            <p>By proceeding with a secure token order checkout, the purchasing client implicitly agrees to the following structural operational guidelines:</p>
-            <ul>
-                <li>You are solely accountable for maintaining proxy environments (such as ExpressVPN or clean matching geographic network configs) requested during profile deployment execution.</li>
-                <li>Affordlogs holds completely zero liability for subsequent account updates, security suspensions, or application configuration flags triggered by incorrect network device parameters post-delivery.</li>
-            </ul>
-        </div>
-
     </div>
 
-    <!-- Bottom Navigation Bar -->
+
+    <!-- ==================== STICKY NAV ACTIONS ==================== -->
     <div class="bottom-nav">
-        <a href="#" class="nav-item active">
+        <button id="navInventoryBtn" class="nav-item active" onclick="switchPage('inventory')">
             <i class="fas fa-store"></i>
             <span class="nav-title">Inventory</span>
-        </a>
-        <a href="https://t.me/afford_logs" class="nav-item giftcard" target="_blank">
+        </button>
+        <button class="nav-item giftcard" onclick="triggerOrder('International Gift Card Liquidation', 'Live Broadcast Rates')">
             <i class="fas fa-gift"></i>
-            <span class="nav-title">Gift Card Redemptions</span>
-            <span class="nav-subtitle">Apple, Steam, Amazon, Razer Gold...</span>
-        </a>
-        <a href="https://t.me/afford_logs" class="nav-item" target="_blank">
+            <span class="nav-title">Gift Cards</span>
+            <span class="nav-subtitle">Apple, Steam, Amazon...</span>
+        </button>
+        <button id="navRatesBtn" class="nav-item" onclick="switchPage('rates')">
             <i class="fas fa-history"></i>
-            <span class="nav-title">Rates</span>
-        </a>
+            <span class="nav-title">Rates & Rules</span>
+        </button>
     </div>
 
-    <!-- Telegram Action Overlay Button -->
-    <a href="https://t.me/afford_logs" class="floating-tg" target="_blank">
-        <i class="fab fa-telegram-plane"></i>
-    </a>
+    <!-- Integrated Automated Assistance Support Overlays -->
+    <button class="floating-tg" onclick="triggerSupport()">
+        <i class="fas fa-headset"></i>
+    </button>
 
-    <!-- UI/UX Interaction Scripts -->
+
+    <!-- ==================== CONTROLLER LOGIC ==================== -->
     <script>
-        // Real-Time Search Handler Engine
+        // System Address Parameter
+        const TELEGRAM_HANDLE = "afford_logs";
+
+        // Automated Order Route Message Builder
+        function triggerOrder(productName, productPrice) {
+            const baseText = `Hello Affordlogs, I want to purchase ${productName} for ${productPrice}. Please process my order.`;
+            const encodedText = encodeURIComponent(baseText);
+            window.open(`https://t.me/${TELEGRAM_HANDLE}?text=${encodedText}`, '_blank');
+        }
+
+        // Automated Live Support Route Builder
+        function triggerSupport() {
+            const supportText = "Hello Affordlogs Support, I need assistance with a digital utility asset.";
+            const encodedSupport = encodeURIComponent(supportText);
+            window.open(`https://t.me/${TELEGRAM_HANDLE}?text=${encodedSupport}`, '_blank');
+        }
+
+        // Dynamic Native Double-Page View Router
+        function switchPage(targetPage) {
+            document.querySelectorAll('.app-view').forEach(view => view.classList.remove('active-view'));
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+
+            if(targetPage === 'inventory') {
+                document.getElementById('inventoryView').classList.add('active-view');
+                document.getElementById('navInventoryBtn').classList.add('active');
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            } else if(targetPage === 'rates') {
+                document.getElementById('ratesView').classList.add('active-view');
+                document.getElementById('navRatesBtn').classList.add('active');
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+        }
+
+        // Real-Time Search Engine
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const searchValue = e.target.value.toLowerCase().trim();
             const cards = document.querySelectorAll('.product-card');
@@ -449,7 +462,7 @@
             });
         });
 
-        // Tab Filter Engine
+        // Category Tab Filtering Engine
         function filterCategory(category, buttonElement) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             buttonElement.classList.add('active');
