@@ -3,193 +3,491 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Storefront</title>
+    <title>AFFORDLOGS | Digital Storefront</title>
     <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --text-bright: #f0f6fc;
+            --accent-blue: #58a6ff;
+            --btn-blue: #238636; /* Replaced with crisp green/blue button */
+            --btn-hover: #2ea043;
+            --glow-green: #39d353;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #f4f6f9;
+            background-color: var(--bg-color);
             margin: 0;
-            padding: 20px;
-            color: #333;
+            padding: 10px 10px 100px 10px;
+            color: var(--text-main);
         }
-        .store-container {
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10px;
             max-width: 600px;
             margin: 0 auto;
         }
-        .category-title {
-            font-size: 1.2rem;
-            color: #4a5568;
-            margin: 25px 0 10px 0;
-            text-transform: uppercase;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-bright);
+            display: flex;
+            align-items: center;
+            gap: 5px;
             letter-spacing: 0.5px;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 5px;
         }
-        .product-card {
-            background: #ffffff;
+
+        .logo span {
+            color: var(--accent-blue);
+        }
+
+        .balance {
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .homescreen-panel {
+            background: rgba(88, 166, 255, 0.05);
+            border: 1px dashed var(--accent-blue);
             border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-            border: 1px solid #edf2f7;
+            padding: 15px;
+            max-width: 570px;
+            margin: 10px auto 25px auto;
+            position: relative;
         }
-        .product-header {
+
+        .homescreen-title {
+            font-weight: bold;
+            color: var(--text-bright);
+            margin-bottom: 12px;
+            font-size: 1rem;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
         }
-        .product-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #1a202c;
-            margin: 0 0 8px 0;
+
+        .close-btn {
+            cursor: pointer;
+            color: var(--text-main);
+            font-size: 1.2rem;
         }
-        .product-desc {
-            font-size: 0.9rem;
-            color: #718096;
-            margin: 0 0 15px 0;
+
+        .instructions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            font-size: 0.85rem;
             line-height: 1.4;
         }
-        .price-badge {
-            background-color: #ebf8ff;
-            color: #2b6cb0;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-block;
+
+        .inst-box h4 {
+            margin: 0 0 5px 0;
+            color: var(--accent-blue);
         }
+
+        .category-title {
+            font-size: 1.1rem;
+            color: var(--text-bright);
+            margin: 30px auto 15px auto;
+            max-width: 600px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .store-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media(min-width: 480px) {
+            .store-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .product-card:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .stock-badge {
+            background: rgba(57, 211, 83, 0.1);
+            color: var(--glow-green);
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .product-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-bright);
+            margin: 0 0 6px 0;
+        }
+
+        .product-desc {
+            font-size: 0.8rem;
+            color: var(--text-main);
+            margin: 0 0 15px 0;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        .price-tag {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+        }
+
         .buy-btn {
             display: block;
             width: 100%;
-            background-color: #3182ce;
+            background-color: #2164f3;
             color: white;
             text-align: center;
-            padding: 12px 0;
+            padding: 10px 0;
             border-radius: 8px;
-            font-weight: 600;
+            font-weight: bold;
             text-decoration: none;
-            margin-top: 15px;
+            font-size: 0.95rem;
             transition: background 0.2s;
         }
+
         .buy-btn:hover {
-            background-color: #2b6cb0;
+            background-color: #1a56d6;
+        }
+
+        /* Floating Utilities Dock */
+        .utility-dock {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(13, 17, 23, 0.95);
+            border-top: 1px solid var(--border-color);
+            padding: 12px;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .dock-container {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .dock-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #161b22;
+            border: 1px solid rgba(57, 211, 83, 0.4);
+            border-radius: 10px;
+            padding: 8px;
+            color: var(--text-bright);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .dock-btn:hover {
+            background: rgba(57, 211, 83, 0.05);
+        }
+
+        .dock-btn span {
+            font-size: 0.7rem;
+            color: var(--text-main);
+            font-weight: normal;
+            margin-top: 2px;
+        }
+
+        .disclaimer {
+            max-width: 580px;
+            margin: 25px auto 10px auto;
+            font-size: 0.75rem;
+            color: #8b949e;
+            text-align: center;
+            line-height: 1.4;
+            padding: 0 10px;
         }
     </style>
 </head>
 <body>
 
-<div class="store-container">
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo">
+            ⚡ <span>AFFORD</span>LOGS
+        </div>
+        <div class="balance">₦11.12</div>
+    </div>
 
-    <!-- VPN Section -->
+    <!-- Add to Homescreen Prompt -->
+    <div class="homescreen-panel" id="homescreenPanel">
+        <div class="homescreen-title">
+            📲 Add Affordlogs to Homescreen
+            <span class="close-btn" onclick="document.getElementById('homescreenPanel').style.display='none'">✕</span>
+        </div>
+        <div class="instructions-grid">
+            <div class="inst-box">
+                <h4>🍏 iOS / iPhone</h4>
+                <p>Tap the <strong>Share button</strong> 📤 and select <strong>"Add to Home Screen"</strong> ➕ to launch as an app.</p>
+            </div>
+            <div class="inst-box">
+                <h4>🤖 Android</h4>
+                <p>Tap the <strong>3-dot menu</strong> 🔌 and select <strong>"Install app"</strong> or <strong>"Add to Home Screen"</strong> ➕.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PREMIUM VPN PRODUCTS -->
     <div class="category-title">🔒 Premium VPN Products</div>
-    
-    <div class="product-card">
-        <div class="product-title">1 Month Avast VPN</div>
-        <div class="product-desc">Secure account access validity for 30 days.</div>
-        <div class="price-badge">₦3,000.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
+    <div class="store-grid">
+
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">1 Month Avast VPN</div>
+                <div class="product-desc">Fully 1 month ⚠️ Attempting To Change Your Password Will Result In Your Account Being Blocked ⚠️</div>
+            </div>
+            <div>
+                <div class="price-tag">₦3,000.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%201%20Month%20Avast%20VPN%20for%20%E2%82%A63%2C000" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">HMA VPN</div>
+                <div class="product-desc">HMA VPN || 1 month premium-you can use it any 1 device ....ios andoid pc all device working</div>
+            </div>
+            <div>
+                <div class="price-tag">₦3,000.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%20HMA%20VPN%20for%20%E2%82%A63%2C000" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">Express VPN PC Login</div>
+                <div class="product-desc">EXPRESS VPN 1 MONTHS FOR PC || From ExpressWay® Warning ‼️‼️ Do not log in to 2 devices. With 1 Device Express VPN subscription, you can use only 1 Device.... 🔒📱 Thank you for choosing ExpressWay®!</div>
+            </div>
+            <div>
+                <div class="price-tag">₦3,500.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%20Express%20VPN%20PC%20Login%20for%20%E2%82%A63%2C500" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">Express VPN Phone Login</div>
+                <div class="product-desc">EXPRESS VPN 1 MONTHS FOR PHONE || From ExpressWay® Warning ‼️‼️ Do not log in to 2 devices. With 1 Device Express VPN subscription, you can use only 1 Device.... 🔒📱 Thank you for choosing ExpressWay®!</div>
+            </div>
+            <div>
+                <div class="price-tag">₦3,000.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%20Express%20VPN%20Phone%20Login%20for%20%E2%82%A63%2C000" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">1 Month Proton VPN</div>
+                <div class="product-desc">Premium high-speed secure browsing tier setup configuration parameters. Verified clean active configurations.</div>
+            </div>
+            <div>
+                <div class="price-tag">₦3,000.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%201%20Month%20Proton%20VPN%20for%20%E2%82%A63%2C000" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">Nord VPN 1 Month</div>
+                <div class="product-desc">Premium stable connection 30-days account login credential validation dataset access.</div>
+            </div>
+            <div>
+                <div class="price-tag">₦3,000.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%20Nord%20VPN%201%20Month%20for%20%E2%82%A63%2C000" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
     </div>
 
-    <div class="product-card">
-        <div class="product-title">HMA VPN</div>
-        <div class="product-desc">Premium multi-device platform compatibility.</div>
-        <div class="price-badge">₦3,000.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
+    <!-- COMMUNICATION & LOGS -->
+    <div class="category-title">📱 Communication & Logs</div>
+    <div class="store-grid">
+
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">textPlus Google Login</div>
+                <div class="product-desc">TEXTPLUS & NEXTPLUS Google Login || OCTOHIDE VPN Location USA-UK Or Express Vpn USA Any City✔️ Use Textplus Apps Sing In With Google [Warning ⚠] Be sure to change your passwordafter logging in.</div>
+            </div>
+            <div>
+                <div class="price-tag">₦3,000.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%20textPlus%20Google%20Login%20for%20%E2%82%A63%2C000" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">New Google Voice</div>
+                <div class="product-desc">Freshly created high-quality Google Voice profile parameters alignment verification setup logs.</div>
+            </div>
+            <div>
+                <div class="price-tag">₦5,000.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%20New%20Google%20Voice%20for%20%E2%82%A65%2C000" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
     </div>
 
-    <div class="product-card">
-        <div class="product-title">Express VPN PC Login</div>
-        <div class="product-desc">Optimized allocation dedicated for desktop operating systems.</div>
-        <div class="price-badge">₦3,500.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
-
-    <div class="product-card">
-        <div class="product-title">Express VPN Phone Login</div>
-        <div class="product-desc">Mobile application platform setup availability.</div>
-        <div class="price-badge">₦3,000.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
-
-    <div class="product-card">
-        <div class="product-title">1 Month Proton VPN</div>
-        <div class="product-desc">Premium access tier configuration for 30 days.</div>
-        <div class="price-badge">₦3,000.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
-
-    <div class="product-card">
-        <div class="product-title">Nord VPN 1 Month</div>
-        <div class="product-desc">Standard individual plan authorization package.</div>
-        <div class="price-badge">₦3,000.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
-
-    <!-- Communication & Social Section -->
-    <div class="category-title">📱 Communication & Social Profiles</div>
-
-    <div class="product-card">
-        <div class="product-title">textPlus Google Login</div>
-        <div class="product-desc">Standard platform configuration parameters.</div>
-        <div class="price-badge">₦3,000.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
-
-    <div class="product-card">
-        <div class="product-title">New Google Voice</div>
-        <div class="product-desc">Fresh profile setup alignment configuration.</div>
-        <div class="price-badge">₦5,000.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
-
+    <!-- TIKTOK ACCOUNTS -->
     <div class="category-title">🎵 TikTok Accounts</div>
+    <div class="store-grid">
 
-    <div class="product-card">
-        <div class="product-title">TikTok 600+ Follower</div>
-        <div class="product-desc">Profile configuration with minimum established metric tier.</div>
-        <div class="price-badge">₦6,000.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">TikTok 600+ Follower</div>
+                <div class="product-desc">TikTok Accounts | Verified by email | email included. | About 500-600+ followers</div>
+            </div>
+            <div>
+                <div class="price-tag">₦6,000.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%20TikTok%20600%2B%20Follower%20for%20%E2%82%A66%2C000" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">TikTok 200+ Follower</div>
+                <div class="product-desc">TikTok Accounts | Verified by email | email included. | About 200+ followers</div>
+            </div>
+            <div>
+                <div class="price-tag">₦4,000.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%20TikTok%20200%2B%20Follower%20for%20%E2%82%A64%2C000" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
     </div>
 
-    <div class="product-card">
-        <div class="product-title">TikTok 200+ Follower</div>
-        <div class="product-desc">Baseline established profile statistics configuration.</div>
-        <div class="price-badge">₦4,000.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
-
+    <!-- USA SOCIAL MEDIA PROFILES -->
     <div class="category-title">📸 USA Social Media Profiles</div>
+    <div class="store-grid">
 
-    <div class="product-card">
-        <div class="product-title">USA Instagram 0-10 Follower</div>
-        <div class="product-desc">Region-specific base account platform parameters.</div>
-        <div class="price-badge">₦2,000.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">USA Instagram 0-10 Follower</div>
+                <div class="product-desc">🌟 Instagram account with US name, 2FA registered, live stream, very random email or phone number - 100% genuine. USE HMA VPN CONNECT NEW YORK</div>
+            </div>
+            <div>
+                <div class="price-tag">₦2,000.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%20USA%20Instagram%200-10%20Follower%20for%20%E2%82%A62%2C000" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">USA Twitter 0-10 Follower</div>
+                <div class="product-desc">🌟 TWITTER account with US name, 2FA registered, live stream, very random email or phone number - 100% genuine. USE HMA VPN CONNECT NEW YORK</div>
+            </div>
+            <div>
+                <div class="price-tag">₦2,000.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%20USA%20Twitter%200-10%20Follower%20for%20%E2%82%A62%2C000" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">USA Facebook Beautiful Profile</div>
+                <div class="product-desc">USA FACEBOOK BEAUTIFUL PROFILE (50+ Friend) (Real+Fake Friendss Mix) YEAR 2024-2025</div>
+            </div>
+            <div>
+                <div class="price-tag">₦3,000.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%20USA%20Facebook%20Beautiful%20Profile%20for%20%E2%82%A63%2C000" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div>
+                <div class="card-meta"><span class="stock-badge">🟢 Stock Active</span></div>
+                <div class="product-title">Facebook Random Account</div>
+                <div class="product-desc">Standard mixed random dynamic profile entry allocation parameters data distribution template.</div>
+            </div>
+            <div>
+                <div class="price-tag">₦2,500.00</div>
+                <a href="https://t.me/afford_logs?text=I%20want%20to%20buy%20Facebook%20Random%20Account%20for%20%E2%82%A62%2C500" class="buy-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+
     </div>
 
-    <div class="product-card">
-        <div class="product-title">USA Twitter 0-10 Follower</div>
-        <div class="product-desc">Standard regional network profile validation criteria.</div>
-        <div class="price-badge">₦2,000.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
+    <!-- Professional Disclaimer -->
+    <div class="disclaimer">
+        ⚖️ <strong>PROFESSIONAL DISCLAIMER:</strong> All assets are distributed solely for educational and development evaluation testing purposes. This system operates independently and maintains no explicit structural affiliation with Meta Platforms, Google LLC, or Bytedance. All user usage responsibility falls to the end client.
     </div>
 
-    <div class="product-card">
-        <div class="product-title">USA Facebook Beautiful Profile</div>
-        <div class="product-desc">Enhanced identity presentation criteria template.</div>
-        <div class="price-badge">₦3,000.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
+    <!-- Floating Sticky Navigation Dock -->
+    <div class="utility-dock">
+        <div class="dock-container">
+            <a href="https://t.me/Affordlogs1" class="dock-btn" target="_blank">
+                📢 OFFICIAL CHANNEL
+                <span>t.me/Affordlogs1</span>
+            </a>
+            <a href="https://t.me/afford_logs" class="dock-btn" target="_blank">
+                💬 24/7 SUPPORT DESK
+                <span>t.me/afford_logs</span>
+            </a>
+        </div>
     </div>
-
-    <div class="product-card">
-        <div class="product-title">Facebook Random Account</div>
-        <div class="product-desc">Standard entry tier platform profile distribution.</div>
-        <div class="price-badge">₦2,500.00</div>
-        <a href="#" class="buy-btn">Buy Now</a>
-    </div>
-
-</div>
 
 </body>
 </html>
